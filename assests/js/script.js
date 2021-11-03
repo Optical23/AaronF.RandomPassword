@@ -1,8 +1,8 @@
-// Assignment code here
-var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-var numerials = ["0","1","2","3","4","5","6","7","8","9"];
-var special = [" ","!",'"',"#","$","%","&","'","(",")","*","+","-",".","/",":",";","<","=","/",">","?","@","[","\\","]","^","_","`","{","|","}","~"];
+// Assignment code here\
+var lowerCaseArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var upperCaseArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var numerialsArray = ["0","1","2","3","4","5","6","7","8","9"];
+var specialArray = [" ","!",'"',"#","$","%","&","'","(",")","*","+","-",".","/",":",";","<","=","/",">","?","@","[","\\","]","^","_","`","{","|","}","~"];
 
 function generatePassword(){
   var passWordLength = window.prompt("Select a length between 8 and 128 characters for your password.");
@@ -20,16 +20,20 @@ function generatePassword(){
     window.alert("You did not select a password length between 8 and 128 characters. Plese try again.");
   }
   function createPassword() {
-    var thePassword = "";
+    var thePassword = [];
     var acceptableCharacters = [];
-    var acceptableCharacters = (includeLowerCase) ? acceptableCharacters.concat(lowerCase) : acceptableCharacters;
-    var acceptableCharacters = (includeUpperCase) ? acceptableCharacters.concat(upperCase) : acceptableCharacters;
-    var acceptableCharacters = (includeNumerials) ? acceptableCharacters.concat(numerials) : acceptableCharacters;
-    var acceptableCharacters = (includeSpecial) ? acceptableCharacters.concat(special) : acceptableCharacters;
-    
-    return acceptableCharacters;
+    var acceptableCharacters = (includeLowerCase) ? acceptableCharacters.concat(lowerCaseArray) : acceptableCharacters;
+    var acceptableCharacters = (includeUpperCase) ? acceptableCharacters.concat(upperCaseArray) : acceptableCharacters;
+    var acceptableCharacters = (includeNumerials) ? acceptableCharacters.concat(numerialsArray) : acceptableCharacters;
+    var acceptableCharacters = (includeSpecial) ? acceptableCharacters.concat(specialArray) : acceptableCharacters;
+    for(var i = 0; i < passWordLength; i++){
+      thePassword.push(acceptableCharacters[getRandomInt(acceptableCharacters.length)]); 
+    }
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+    return thePassword.join("");
   }
-
 }
 
 function getRandomInt(max) {
