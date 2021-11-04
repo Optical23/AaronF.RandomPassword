@@ -36,9 +36,6 @@ function generatePassword(){
   }
 }
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
