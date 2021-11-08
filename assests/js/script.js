@@ -39,7 +39,7 @@ function generatePassword(){
     function getRandomInt(max) {
       return Math.floor(Math.random() * max);
     }
-    //Returns array as a single line string
+    //Returns array as a single line
     return thePassword.join("");
   }
 }
